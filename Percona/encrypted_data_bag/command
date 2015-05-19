@@ -1,0 +1,9 @@
+#Command to be used for creating Random Passwords for MySQL
+
+openssl rand -base64 512 | tr -d '\r\n' > secret_key
+
+#Creating an encrypted data bag:
+
+knife data bag create ..editor /usr/bin/vim ..secret-file ./secret_key production passwords
+
+#Refer:http://www.cschramm.net/howtos/creating-encrypted-databag-chef/
